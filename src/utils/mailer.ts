@@ -40,7 +40,7 @@ const sendEmail = async ({ email, emailType, userId }: any) => {
         emailType === EMAIL_TYPES.VERIFY_EMAIL
           ? "Verify your email"
           : "Reset your password",
-      html: `<p>Click <a href="${process.env.DOMAIN}/api/users/${
+      html: `<p>Click <a href="${process.env.DOMAIN}/${
         emailType === EMAIL_TYPES.VERIFY_EMAIL ? "verifyemail" : "resetpassword"
       }?token=${hashedToken}">here</a> to ${
         emailType === EMAIL_TYPES.VERIFY_EMAIL
@@ -49,7 +49,7 @@ const sendEmail = async ({ email, emailType, userId }: any) => {
       }
       or copy and paste the link below in your browser. <br> ${
         process.env.DOMAIN
-      }/api/users/${
+      }/${
         emailType === EMAIL_TYPES.VERIFY_EMAIL ? "verifyemail" : "resetpassword"
       }?token=${hashedToken}
       </p>`,
